@@ -91,6 +91,9 @@ The analysis produced several key findings:
 - Applying a log transformation reduced the influence of extreme property prices and produced a more balanced scoring model.
 - The Robust Opportunity Score identified boroughs that consistently performed well across multiple investment scenarios.
 
+## Repository Structure
+
+```text
 London-Property-Intelligence/
 │
 ├── data/
@@ -99,6 +102,7 @@ London-Property-Intelligence/
 │       └── london_transactions.csv
 │
 ├── docs/
+│
 ├── notebooks/
 │   ├── 01_Exploring_HM_Land_Registry.ipynb
 │   ├── 02_Build_Multi_Layer_London_Dataset.ipynb
@@ -106,13 +110,16 @@ London-Property-Intelligence/
 │   └── 04_Model_Development.ipynb
 │
 ├── reports/
+│
 ├── src/
+│
 ├── visuals/
 │
 ├── .gitignore
 ├── LICENSE
 ├── README.md
 └── requirements.txt
+```
 
 ## How to Run
 
@@ -137,7 +144,7 @@ Planned future improvements include:
 - Expanding the investment scoring framework
 - Deploying the project as a portfolio application
 
----
+------------------
 
 # Version 2 – Predictive Modelling
 
@@ -173,6 +180,11 @@ This indicates that the main limitation lies in the available features rather th
 
 These findings motivate the next stage of the project, which will focus on feature engineering and the integration of additional external datasets.
 
+## Project Evolution
+
+- **Version 1** – Exploratory Data Analysis, feature engineering and business scoring.
+- **Version 2** – Predictive modelling using Linear Regression, Random Forest and XGBoost.
+- **Version 3 (Planned)** – Feature engineering with external datasets and improved predictive modelling.
 
 ## Author
 
