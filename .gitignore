@@ -227,4 +227,6 @@ Thumbs.db
 *.code-workspace
 
 # Large raw datasets
-data/raw/pp-2025.csv
+data/raw/
+
+data/processed/london_transactions_2018_2025.csv

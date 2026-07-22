@@ -91,9 +91,6 @@ The analysis produced several key findings:
 - Applying a log transformation reduced the influence of extreme property prices and produced a more balanced scoring model.
 - The Robust Opportunity Score identified boroughs that consistently performed well across multiple investment scenarios.
 
-## Repository Structure
-
-```text
 London-Property-Intelligence/
 │
 ├── data/
@@ -103,7 +100,10 @@ London-Property-Intelligence/
 │
 ├── docs/
 ├── notebooks/
-│   └── 01_Exploring_HM_Land_Registry.ipynb
+│   ├── 01_Exploring_HM_Land_Registry.ipynb
+│   ├── 02_Build_Multi_Layer_London_Dataset.ipynb
+│   ├── 03_Build_Borough_Dataset.ipynb
+│   └── 04_Model_Development.ipynb
 │
 ├── reports/
 ├── src/
@@ -113,7 +113,6 @@ London-Property-Intelligence/
 ├── LICENSE
 ├── README.md
 └── requirements.txt
-```
 
 ## How to Run
 
@@ -138,12 +137,48 @@ Planned future improvements include:
 - Expanding the investment scoring framework
 - Deploying the project as a portfolio application
 
+---
+
+# Version 2 – Predictive Modelling
+
+## Objective
+
+The objective of Version 2 was to evaluate whether historical borough-level market statistics could be used to predict average house price growth in the following year.
+
+Rather than focusing solely on predictive performance, this stage investigates whether the currently available HM Land Registry features contain sufficient information to support reliable forecasting.
+
+## Models Evaluated
+
+The following models were implemented and compared:
+
+- Baseline Model
+- Linear Regression
+- Random Forest
+- Random Forest (without City of London)
+- XGBoost
+
+## Key Findings
+
+None of the evaluated machine learning models outperformed the baseline model.
+
+More complex algorithms, including Random Forest and XGBoost, did not produce better predictions than the simpler baseline approach.
+
+A sensitivity analysis was also conducted by removing the City of London, which had previously shown unusually large annual price fluctuations. Although model performance improved slightly, the overall conclusions remained unchanged.
+
+## Conclusion
+
+The results suggest that the current feature set does not contain enough predictive information to model next-year house price growth reliably.
+
+This indicates that the main limitation lies in the available features rather than in the choice of machine learning algorithm.
+
+These findings motivate the next stage of the project, which will focus on feature engineering and the integration of additional external datasets.
+
+
 ## Author
 
 Shiva
 
 Data Science Portfolio Project
-
 
 ## Data Availability
 
