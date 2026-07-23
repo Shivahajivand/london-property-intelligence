@@ -29,7 +29,8 @@ For this project, the dataset was filtered to include only transactions within G
 ### Data Source
 
 - HM Land Registry – Price Paid Data (PPD)
-- Year: 2025
+- Residential property transactions within Greater London
+- Coverage: 2018–2025
 
 ### Key Variables Used
 
