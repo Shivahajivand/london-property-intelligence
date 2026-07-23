@@ -91,6 +91,18 @@ The analysis produced several key findings:
 - Applying a log transformation reduced the influence of extreme property prices and produced a more balanced scoring model.
 - The Robust Opportunity Score identified boroughs that consistently performed well across multiple investment scenarios.
 
+### Robust Opportunity Score
+
+The Robust Opportunity Score combines multiple investment scenarios to identify London boroughs that consistently demonstrate strong investment potential. Unlike individual scoring methods, this composite score provides a more balanced and stable assessment of market opportunities.
+
+<p align="center">
+  <img src="visuals/robust_opportunity_score.png"
+       alt="Top 10 London Boroughs by Robust Opportunity Score"
+       width="800">
+</p>
+
+*Figure 1. Top 10 London boroughs ranked by the Robust Opportunity Score.*
+
 ## Repository Structure
 
 ```text
@@ -163,6 +175,26 @@ The following models were implemented and compared:
 - Random Forest
 - Random Forest (without City of London)
 - XGBoost
+
+## Model Performance Summary
+
+Model performance was evaluated using Mean Absolute Error (MAE), Root Mean Squared Error (RMSE), and the coefficient of determination (R²). The baseline model was used as the reference benchmark to assess whether more sophisticated machine learning models provided meaningful improvements.
+
+| Model | MAE ↓ | RMSE ↓ | R² ↑ | Key Observation |
+|-------|------:|-------:|------:|----------------|
+| **Baseline** | **0.0773** | 0.1120 | -0.2289 | Benchmark model with the lowest MAE |
+| Linear Regression | 0.0987 | 0.1499 | -1.2013 | Linear relationships were insufficient for accurate prediction |
+| Random Forest | 0.1040 | 0.1513 | -1.2426 | Greater model complexity did not improve performance |
+| **Random Forest (without City of London)** | 0.0792 | **0.1020** | **-0.1986** | Best RMSE and R² after removing an influential outlier |
+| XGBoost | 0.1100 | 0.1772 | -2.0778 | Gradient boosting did not outperform the baseline |
+
+### Interpretation of Results
+
+The predictive modelling results show that increasing model complexity did not lead to meaningful improvements in forecasting next-year borough-level house price growth. Although Random Forest showed a slight improvement after removing the City of London from the analysis, none of the evaluated machine learning models consistently outperformed the baseline model.
+
+These findings suggest that the main limitation lies in the information available within the current feature set rather than in the choice of algorithm. In other words, more sophisticated models alone cannot compensate for a lack of predictive features.
+
+This outcome reflects an important principle in data science: building better predictive models often requires better data, richer features, and deeper domain knowledge—not simply more complex algorithms.
 
 ## Key Findings
 
