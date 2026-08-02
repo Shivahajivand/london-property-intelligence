@@ -217,7 +217,22 @@ These findings motivate the next stage of the project, which will focus on featu
 
 - **Version 1** – Exploratory Data Analysis, feature engineering and business scoring.
 - **Version 2** – Predictive modelling using Linear Regression, Random Forest and XGBoost.
-- **Version 3 (Planned)** – Feature engineering with external datasets and improved predictive modelling.
+- **Version 3 (Current)** – Building a multi-layer London Intelligence Dataset by integrating external urban datasets to improve feature engineering and support more informative predictive modelling.
+
+Version 3 focuses on enriching the borough-year property dataset by integrating external urban intelligence datasets.
+
+Completed
+
+- ✅ Population Layer (ONS Mid-Year Population Estimates)
+
+Planned
+
+- Crime Layer
+- Income Layer
+- Public Transport Accessibility Level (PTAL)
+- Index of Multiple Deprivation (IMD)
+
+The resulting London Intelligence Dataset will provide richer explanatory variables for investment analysis and future predictive modelling.
 
 ## Author
 
@@ -225,15 +240,16 @@ Shiva
 
 Data Science Portfolio Project
 
-## Data Availability
+## ## Data Availability
 
 The original HM Land Registry Price Paid dataset is not included in this repository because of its large file size.
 
-The processed London dataset used throughout this project is available in:
+The processed datasets used throughout this project are available in:
 
-`data/processed/london_transactions.csv`
+* `data/processed/london_transactions.csv` — Cleaned property transaction dataset used for exploratory analysis and feature engineering.
+* `data/processed/london_intelligence_dataset.csv` — The current multi-layer analytical dataset, created by integrating the borough-year property dataset with external urban intelligence layers. At this stage, the dataset includes the ONS Population layer.
 
-The original dataset can be downloaded from the official HM Land Registry website.
+The original HM Land Registry dataset can be downloaded from the official HM Land Registry website.
 
 ## License
 
