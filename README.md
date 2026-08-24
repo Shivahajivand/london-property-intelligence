@@ -79,7 +79,7 @@ Key property-market variables include:
 
 Population information is integrated at borough level and provides demographic context for the property-market analysis.
 
-Population features contribute to the broader London Intelligence Dataset and the predictive modelling workflow where appropriate.
+Population data contributes to the broader London Intelligence Dataset and urban intelligence analysis. It is not included among the 10 predictors of the final predictive modelling dataset.
 
 ---
 
@@ -230,7 +230,7 @@ The main processed datasets generated during the project include:
 
 - `data/processed/london_property_final_predictive_features_targets.parquet` — Final modelling dataset containing the predictive features and target variables used in the predictive modelling workflow.
 
-Final predictive outputs are stored separately in `final_outputs/`.
+Final predictive outputs are stored separately in `notebooks/final_outputs/`.
 
 ---
 
@@ -300,7 +300,6 @@ Performance was evaluated using:
 
 * MAE
 * RMSE
-* R²
 
 The results showed that increasing model complexity did not automatically produce better forecasts.
 
@@ -723,8 +722,7 @@ The project demonstrates that useful property-market intelligence requires more 
 
 The final predictive modelling workflow produces three primary outputs:
 
-```text
-final_outputs/
+notebooks/final_outputs/
 │
 ├── London_Housing_2025_Final_Predictions.csv
 ├── London_Housing_2025_Sensitivity_Analysis.csv
@@ -810,6 +808,7 @@ The workflow is modular rather than a single uninterrupted execution pipeline. I
 
 ```text
 London-Property-Intelligence/
+
 │
 ├── data/
 │   ├── raw/
@@ -840,36 +839,36 @@ London-Property-Intelligence/
 │   │
 │   ├── integrated_data_quality_and_feature_analysis.ipynb
 │   ├── integration.ipynb
+│   ├── Predictive_Modelling_and_Time_Based_Validation.ipynb
 │   │
-│   └── Predictive_Modelling_and_Time_Based_Validation.ipynb
-│
-├── final_outputs/
-│   ├── London_Housing_2025_Final_Predictions.csv
-│   ├── London_Housing_2025_Sensitivity_Analysis.csv
-│   └── London_Housing_2025_Final_Results.xlsx
+│   └── final_outputs/
+│       ├── London_Housing_2025_Final_Predictions.csv
+│       ├── London_Housing_2025_Sensitivity_Analysis.csv
+│       └── London_Housing_2025_Final_Results.xlsx
 │
 ├── reports/
+│
 ├── src/
+│
 ├── visuals/
 │   └── robust_opportunity_score.png
 │
 ├── .gitignore
 ├── LICENSE
-├── PROJECT_STATE.md
 ├── README.md
 └── requirements.txt
 ```
 
 The repository is organised into separate directories for:
 
-* Raw source data
-* Processed datasets
+* Raw and processed data
 * Analytical notebooks
+* Final predictive outputs
 * Supporting documentation
-* Final modelling outputs
 * Reports
 * Reusable source code
 * Visual outputs
+
 
 ---
 
