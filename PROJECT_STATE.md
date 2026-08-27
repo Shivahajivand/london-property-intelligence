@@ -54,7 +54,7 @@ This became the key lesson for the next version.
 
 ---
 
-## Version 3 — In Progress 🚧
+## Version 3 — 
 
 Objective:
 
@@ -396,88 +396,110 @@ If the answer is **Yes**, continue.
 
 If the answer is **No**, postpone it or remove it.
 
-## Latest Progress (Population Layer)
+## Latest Project State
+
+### Current Phase
+
+Version 3 is currently in the **multi-layer urban intelligence integration phase**.
+
+The Population Layer has been successfully cleaned, validated and integrated into the London Intelligence Dataset.
+
+The project is now continuing with the remaining external urban intelligence layers before moving to further feature engineering and predictive modelling.
+
+---
+
+## Latest Progress — Population Layer
 
 ### Completed
 
-- Completed auditing the ONS MYE4 population dataset.
-- Verified the dataset structure and metadata.
-- Converted the dataset from wide format to long format.
-- Filtered the data to the 33 London Boroughs only.
-- Cleaned the Year column (2011–2022).
-- Validated:
-  - 33 boroughs
-  - 12 years
-  - 396 borough-year records
-  - No missing values
-  - No duplicate Borough-Year pairs
-- Saved the cleaned population layer as:
+* Audited the ONS MYE4 population dataset.
+* Verified dataset structure and metadata.
+* Converted the dataset from wide format to long format.
+* Filtered the data to the 33 London Boroughs.
+* Cleaned the Year column (2011–2022).
+* Validated:
 
-  data/processed/london_population.csv
+  * 33 boroughs
+  * 12 years
+  * 396 borough-year records
+  * No missing values
+  * No duplicate Borough-Year pairs
+* Saved the cleaned layer as:
 
-### Decision
+`data/processed/london_population.csv`
 
-The London Intelligence Dataset will use the cleaned
-`london_population.csv` file rather than reading directly from the
-original ONS Excel workbook.
+### Integration
 
-The original workbook (`ons_population_2022.xlsx`) will remain as the
-raw source, while all downstream notebooks will use the processed CSV.
+The cleaned Population Layer was successfully integrated into the London Intelligence Dataset.
 
-## Project Decisions
+Completed integration checks included:
 
-### Dataset Architecture
+* Standardised `Merge_Key`
+* Resolved borough naming differences
+* Verified dataset compatibility before merging
+* Preserved the borough-year analytical grain
+* Validated the merged dataset after integration
+* Saved the updated:
 
-- Every raw dataset is explored and cleaned in its own notebook.
-- Each notebook produces one cleaned dataset in `data/processed/`.
-- `06_build_london_intelligence_dataset.ipynb` is responsible only for integrating the processed layers.
-- Raw datasets are never merged directly into the intelligence dataset.
+`data/processed/london_intelligence_dataset.csv`
 
-## Architecture Decisions
+---
 
-### Standard Merge Key
+## Current Integration Status
 
-During the integration of the Population Layer, a standard `Merge_Key` column was introduced to support reliable dataset integration.
+### Completed
 
-The original borough name columns (`District` and `Name`) are preserved, while `Merge_Key` is used as the standard key for matching records across datasets.
+* Property Market Layer ✅
+* Population Layer ✅
 
-This design:
+### In Progress
 
-* preserves the original source data
-* separates source variables from integration logic
-* provides a reusable merge strategy for future data layers
-* avoids modifying the original borough name columns
+* PTAL / Transport Accessibility Layer 🚧
+* Crime Layer 🚧
+* Income Layer 🚧
+* Deprivation / IMD Layer 🚧
+* Area / Density features 🚧
 
-This approach will be adopted for all future external datasets (Crime, Income, PTAL and IMD) to maintain a consistent integration workflow.
+---
 
-## Milestone
+## Current Priority
 
-### Population Layer Successfully Integrated
+Complete and validate the remaining urban intelligence layers and progressively integrate them into the master London Intelligence Dataset.
 
-The validated Population Layer has been successfully integrated into the London Intelligence Dataset.
+No new predictive modelling should begin until the integrated multi-layer dataset is complete.
 
-### Completed Work
+---
 
-* Integrated the cleaned population dataset into the analytical property dataset.
-* Established a reusable integration workflow for future external data layers.
-* Standardised borough merge keys while preserving the original source columns.
-* Resolved borough naming differences (e.g. Westminster vs City of Westminster).
-* Performed compatibility checks before integration.
-* Validated the merged dataset after integration.
-* Preserved the borough-year analytical grain throughout the merge process.
-* Saved the updated `london_intelligence_dataset.csv`.
+## Integration Rule
 
-### Lessons Learned
+Every external dataset follows the same workflow:
 
-* Dataset grain must always be identified before performing a merge.
-* Merge keys must represent the complete analytical grain (`Merge_Key` + `Year`), not only the borough identifier.
-* Every integration should follow the same workflow:
+```text
+Load
+↓
+Audit
+↓
+Compatibility Check
+↓
+Merge Key Standardisation
+↓
+Merge
+↓
+Post-Merge Validation
+↓
+Save
+```
 
-  * Load
-  * Audit
-  * Compatibility Check
-  * Merge Key Standardisation
-  * Merge Validation
-  * Merge
-  * Post-Merge Validation
-  * Save
+The final integration notebook should only work with validated processed datasets.
+
+---
+
+## Project State Rule
+
+This file should remain short and practical.
+
+Update it only after a meaningful project milestone so that it always answers three questions:
+
+1. Where are we?
+2. What has been completed?
+3. What is the next step?

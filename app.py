@@ -424,8 +424,9 @@ elif page == "📍 District Intelligence":
     )
 
     selected_district = st.selectbox(
-        "Select a District",
-        districts
+    "Select a District",
+    districts,
+    key="historical_district"
     )
 
     district_data = (
@@ -705,7 +706,8 @@ st.subheader("🔎 Explore a District's 2025 Forecast")
 
 selected_district = st.selectbox(
     "Select a District",
-    predictions["District"].sort_values().tolist()
+    predictions["District"].sort_values().tolist(),
+    key="forecast_district"
 )
 
 selected_row = predictions[
