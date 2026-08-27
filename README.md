@@ -1,5 +1,7 @@
 # London Property Intelligence
 
+🚀 **[Live Demo — Interactive Streamlit Dashboard](https://london-property-intelligence-bfts8sf7gljba3typvq74t.streamlit.app/)**
+
 ## End-to-End Data Science Portfolio Project
 
 ### Project Overview
