@@ -136,9 +136,8 @@ Because PTAL data is associated with a reference year rather than a complete ann
 
 **Source:** Index of Multiple Deprivation (IMD)
 
-Deprivation information is incorporated according to its available reference year.
 
-The project does not artificially extend a single IMD observation across years where equivalent temporal information is unavailable.
+IMD was assessed as a potential socioeconomic feature. Due to its limited temporal coverage relative to the 2018–2023 modelling period, it was not retained in the final modelling feature set. No IMD observation was artificially extended across years where equivalent temporal information was unavailable.
 
 ---
 
@@ -222,7 +221,7 @@ The main processed datasets generated during the project include:
 
 - `data/processed/london_imd.csv` — Processed deprivation / IMD dataset.
 
-- `data/processed/borough_ptal_2015.csv` — Processed PTAL-related data.
+- `data/processed/borough_ptai_2015.csv` — Processed PTAL-related data.
 
 - `data/processed/ptai_borough_2015.csv` — Borough-level public transport accessibility data.
 
@@ -997,6 +996,24 @@ pip install -r requirements.txt
 
 ---
 
+## Interactive Dashboard
+
+The project includes an interactive Streamlit web application for exploring London property-market intelligence and model-based forecasts.
+
+The dashboard provides:
+
+* Historical district-level property and urban intelligence
+* District-level 2025 price-growth predictions
+* Comparison of predicted Average and Median Price Growth
+* District ranking and comparative analysis
+* Sensitivity analysis across socioeconomic scenarios
+
+To launch the dashboard locally:
+
+```bash
+streamlit run app.py
+```
+
 ## Running the Project
 
 The notebooks represent different analytical stages and are not necessarily intended to be executed as one uninterrupted linear script.
@@ -1083,7 +1100,6 @@ Potential future development includes:
 * Additional temporal observations as they become available
 * More advanced uncertainty estimation
 * Model monitoring and forecast evaluation
-* Interactive Streamlit dashboard
 * API-based model serving
 * Production-oriented deployment
 * Automated data pipelines
